@@ -1,0 +1,31 @@
+#Dependencies
+node_modules/
+
+# Environment variables (passwords, API keys, etc.)
+.env
+.env.*
+!.env.example
+
+# IDE settings
+.idea/
+.vscode/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# Build output
+dist/
+build/
+coverage/
+
+#word documents
+*.docx
