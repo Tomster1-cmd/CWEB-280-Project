@@ -1,34 +1,36 @@
 
-// Get HTML elements
+
 const openTicket = document.getElementById("openTicket");
 const ticketPopup = document.getElementById("ticketPopup");
 const closeButton = document.querySelector(".close");
 const ticketForm = document.getElementById("ticketForm");
 
-// Open the ticket popup
-openTicket.addEventListener("click", function() {
+openTicket.addEventListener("click", function() 
+{
     ticketPopup.style.display = "block";
 });
 
-// Close the ticket popup
-closeButton.addEventListener("click", function() {
+closeButton.addEventListener("click", function() 
+{
     ticketPopup.style.display = "none";
 });
 
-// Close popup when clicking outside the form
-window.addEventListener("click", function(event) {
-    if (event.target === ticketPopup) {
+window.addEventListener("click", function(event)
+{
+    if (event.target === ticketPopup) 
+    {
         ticketPopup.style.display = "none";
     }
 });
 
-// Handle ticket submission
-ticketForm.addEventListener("submit", function(event) {
 
-    // Prevent page from refreshing
+ticketForm.addEventListener("submit", function(event) 
+{
+
+   
     event.preventDefault();
 
-    // Get information from the form
+    
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const issue = document.getElementById("issue").value;
@@ -36,7 +38,6 @@ ticketForm.addEventListener("submit", function(event) {
     const subject = document.getElementById("subject").value;
     const description = document.getElementById("description").value;
 
-    // Display confirmation message
     alert(
         "Ticket Submitted Successfully!\n\n" +
         "Name: " + name + "\n" +
@@ -47,9 +48,7 @@ ticketForm.addEventListener("submit", function(event) {
         "Description: " + description
     );
 
-    // Clear the form
     ticketForm.reset();
 
-    // Close the popup
     ticketPopup.style.display = "none";
 });
