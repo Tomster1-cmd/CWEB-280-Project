@@ -1,7 +1,7 @@
 
 CREATE DATABASE IF NOT EXISTS cweb_280_project;
 
-USE cweb_280_project;
+USE cweb-280-project;
 
 -- Department
 CREATE TABLE IF NOT EXISTS Department (
