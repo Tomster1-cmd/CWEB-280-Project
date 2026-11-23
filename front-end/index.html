@@ -4,26 +4,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lettuce Helpdesk</title>
-    <link rel="stylesheet" href="LettuceHelpdesk.css">
+    <link rel="stylesheet" href="Lettuce Helpdesk.css">
 </head>
 <body>
-<section class="introduction">
-<h2>Introduction</h2>
-<p>We are the Lettuce Helpdesk, our goal is to create an application
-    that will help tech companies or small businesses.</p>
-<h3>Our mission</h3>
-<p>Our goal is to build a working IT helpdesk application
-    that makes it easier for employees to report
-    problems and for IT staff to manage them.</p>
-</section>
-<section class="ticket-section">
-    <h2>Create a Ticket</h2>
-    <p>
-        Having technical difficulties?
-        Submit a ticket to our IT support team.
-    </p>
-    <button id="openTicket">Create Ticket</button>
-</section>
+<nav class="topbar">
+<a href="#dashboard">Dashboard</a>
+<a href="new-ticket">New Tickets</a>
+<a href="my-tickets">My Tickets</a>
+<a href="#">Preferences</a>
+</nav>
+
+<main class="main-content">
+    <section class="introduction" id="dashboard">
+        <h2>Introduction</h2>
+        <p>We are the Lettuce Helpdesk, our goal is to create an application
+            that will help tech companies or small businesses.</p>
+        <h3>Our mission</h3>
+        <p>Our goal is to build a working IT helpdesk application
+            that makes it easier for employees to report
+            problems and for IT staff to manage them.</p>
+    </section>
+    <section id="new-ticket">
+
+        <h2>Create New Ticket</h2>
+
+        <p>Submit a technical issue to our IT support team.</p>
+    </section>
+    <section class="ticket-section">
+        <h2>Create a Ticket</h2>
+        <p>
+            Having technical difficulties?
+            Submit a ticket to our IT support team.
+        </p>
+        <button id="openTicket">Create Ticket</button>
+    </section>
+
+    <section id="my-tickets">
+        <h2>My Tickets</h2>
+        <p>View and track your submitted support tickets.</p>
+        <table>
+            <tr>
+                <th>Ticket ID</th>
+                <th>Subject</th>
+                <th>Category</th>
+                <th>Priority</th>
+                <th>Status</th>
+            </tr>
+
+            <tr>
+                <td>001</td>
+                <td>Computer not starting</td>
+                <td>Hardware</td>
+                <td>High</td>
+                <td>Open</td>
+            </tr>
+
+            <tr>
+                <td>002</td>
+                <td>Internet connection issue</td>
+                <td>Network</td>
+                <td>Medium</td>
+                <td>In Progress</td>
+            </tr>
+
+            <tr>
+                <td>003</td>
+                <td>Password reset</td>
+                <td>Account Access</td>
+                <td>Low</td>
+                <td>Resolved</td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="preferences">
+        <h2>Preferences</h2>
+        <p>Manage your account preferences.</p>
+        <form>
+            <label for="userName">Full Name</label>
+            <input type="text" id="userName"
+                   placeholder="Enter your name">
+
+            <label for="userEmail">Email Address</label>
+            <input type="email" id="userEmail"
+                   placeholder="Enter your email">
+
+            <h3>Notification Settings</h3>
+
+            <label>
+                <input type="checkbox" checked>
+                Receive ticket status notifications
+            </label>
+
+            <label>
+                <input type="checkbox" checked>
+                Receive email notifications
+            </label>
+
+            <button type="button">Save Preferences</button>
+        </form>
+    </section>
+</main>
 
 <div id="ticketPopup" class="popup">
     <div class="popup-content">
@@ -73,6 +154,5 @@
         </form>
     </div>
 </div>
-    <script src="script.js"></script>
 </body>
 </html>
