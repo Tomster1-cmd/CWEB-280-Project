@@ -1,7 +1,7 @@
 
 CREATE DATABASE IF NOT EXISTS cweb_280_project;
 
-USE cweb-280-project;
+USE cweb_280_project;
 
 -- Department
 CREATE TABLE IF NOT EXISTS Department (
@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS IncompleteTickets (
 -- Completed Tickets
 CREATE TABLE IF NOT EXISTS CompletedTickets (
 
-   CompletedTicketsID INT PRIMARY KEY,
+CompletedTicketsID INT AUTO_INCREMENT PRIMARY KEY,
 
    TicketID INT,
 
