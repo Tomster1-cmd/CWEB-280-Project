@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS Ticket (
 -- Incomplete Tickets
 CREATE TABLE IF NOT EXISTS IncompleteTickets (
 
-   IncompleteTicketsID INT PRIMARY KEY,
+   IncompleteTicketsID INT auto_increment primary key,
 
    TicketID INT,
 
@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS IncompleteTickets (
 -- Completed Tickets
 CREATE TABLE IF NOT EXISTS CompletedTickets (
 
-   CompletedTicketsID INT PRIMARY KEY,
+CompletedTicketsID INT AUTO_INCREMENT PRIMARY KEY,
 
    TicketID INT,
 
