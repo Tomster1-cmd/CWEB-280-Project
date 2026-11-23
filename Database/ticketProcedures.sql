@@ -1,16 +1,16 @@
 
-USE cweb_280_project;
+-- Reopens a previously completed ticket
 
 DELIMITER $$
 
-DROP PROCEDURE IF EXISTS CompleteTicket$$
+DROP PROCEDURE IF EXISTS ReopenTicket$$
 
-CREATE PROCEDURE CompleteTicket(
+CREATE PROCEDURE ReopenTicket(
     IN p_TicketID INT
 )
 BEGIN
     DECLARE v_TypeOfTicket VARCHAR(50);
-    DECLARE v_IncompleteID INT DEFAULT NULL;
+    DECLARE v_CompletedID INT DEFAULT NULL;
 
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
         BEGIN
@@ -20,40 +20,38 @@ BEGIN
 
     START TRANSACTION;
 
-    -- Find the incomplete ticket
-    SET v_IncompleteID = NULL;
-
+    -- Find the completed ticket
     SELECT
-        IncompleteTicketsID,
+        CompletedTicketsID,
         TypeOfTicket
     INTO
-        v_IncompleteID,
+        v_CompletedID,
         v_TypeOfTicket
-    FROM IncompleteTickets
+    FROM CompletedTickets
     WHERE TicketID = p_TicketID
     LIMIT 1
     FOR UPDATE;
 
-    -- Check whether the ticket is incomplete
-    IF v_IncompleteID IS NULL THEN
+    -- Check if the ticket is completed
+    IF v_CompletedID IS NULL THEN
         SIGNAL SQLSTATE '45000'
-            SET MESSAGE_TEXT = 'Ticket does not exist or is not incomplete';
+            SET MESSAGE_TEXT = 'Ticket is not completed or does not exist';
     END IF;
 
-    -- Prevent duplicate completed tickets
+    -- Prevent duplicate incomplete tickets
     IF EXISTS (
         SELECT 1
-        FROM CompletedTickets
+        FROM IncompleteTickets
         WHERE TicketID = p_TicketID
     ) THEN
         SIGNAL SQLSTATE '45000'
-            SET MESSAGE_TEXT = 'Ticket has already been completed';
+            SET MESSAGE_TEXT = 'Ticket is already incomplete';
     END IF;
 
-    -- Add the completed ticket
-    INSERT INTO CompletedTickets (
+    -- Add the ticket back to incomplete
+    INSERT INTO IncompleteTickets (
         TicketID,
-        DateFinished,
+        DateMade,
         TypeOfTicket
     )
     VALUES (
@@ -62,9 +60,9 @@ BEGIN
                v_TypeOfTicket
            );
 
-    -- Remove the incomplete ticket
-    DELETE FROM IncompleteTickets
-    WHERE IncompleteTicketsID = v_IncompleteID;
+    -- Remove the completed ticket record
+    DELETE FROM CompletedTickets
+    WHERE CompletedTicketsID = v_CompletedID;
 
     COMMIT;
 END$$
