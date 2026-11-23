@@ -235,3 +235,35 @@ body
 {
     color: white !important;
 }
+
+.footer
+{
+    background-color: #1f2937;
+    color: white;
+    text-align: center;
+    padding: 25px 20px;
+    margin-top: 40px;
+}
+
+.footer p
+{
+    margin: 8px 0;
+}
+
+.footer-links
+{
+    margin-top: 15px;
+}
+
+.footer-links a
+{
+    color: white;
+    text-decoration: none;
+    margin: 0 12px;
+}
+
+.footer-links a:hover
+{
+    color: #a3e635;
+    text-decoration: underline;
+}
