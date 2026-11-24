@@ -62,3 +62,37 @@ FROM CompletedTickets AS ct
                    ON t.ContactInfoID = c.ContactInfoID
          LEFT JOIN Issues AS i
                    ON t.IssuesID = i.IssuesID;
+
+
+-- View 4: Ticket Statistics
+
+create or replace view TicketStatisticsView as
+    select
+        (select count(*)
+         from Ticket) as totalTickets,
+        
+        (select  count(distinct TicketID)
+         from incompletetickets) as IncompleteTickets,
+
+        (select count(distinct TicketID)
+
+         from completedtickets) as CompletedTickets,
+
+        (select  count(distinct t.TicketID)
+         from Ticket as t
+         inner join Issues as i
+         on t.IssuesID = i.IssuesID
+         inner join IncompleteTickets as it
+                on t.TicketID = it.TicketID
+         where i.Priority = 'High') as HighPriorityTickets,
+
+        COALESCE(
+        round(
+        (
+            select count(distinct TicketID)
+            from CompletedTickets) * 100.0 /
+            nullif(
+            (select count(*) from Ticket), 0
+            ),2
+        ),0
+        ) as CompletionRate;
