@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS ContactInfo (
 -- Issues
 CREATE TABLE IF NOT EXISTS Issues (
 
-    IssuesID INT PRIMARY KEY,
+    IssuesID INT auto_increment primary KEY,
 
     TypeOfIssue VARCHAR(50),
 
@@ -49,13 +49,13 @@ CREATE TABLE IF NOT EXISTS Issues (
 -- Tickets
 CREATE TABLE IF NOT EXISTS Ticket (
 
-    TicketID INT PRIMARY KEY,
+    TicketID INT  auto_increment PRIMARY KEY,
 
     TicketDate DATE,
 
     ContactInfoID INT,
 
-    IssuesID INT,
+    IssuesID INT ,
 
     FOREIGN KEY (ContactInfoID)
 

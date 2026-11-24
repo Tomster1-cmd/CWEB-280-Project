@@ -9,8 +9,10 @@ CREATE PROCEDURE CompleteTicket(
     IN p_TicketID INT
 )
 BEGIN
+
     DECLARE v_TypeOfTicket VARCHAR(50);
     DECLARE v_IncompleteID INT DEFAULT NULL;
+
 
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
         BEGIN
@@ -22,6 +24,7 @@ BEGIN
 
     -- Find the incomplete ticket
     SELECT
+        -- Selects both the IncompleteTicketsID then the type of that ticket
         IncompleteTicketsID,
         TypeOfTicket
     INTO
@@ -134,6 +137,86 @@ BEGIN
     WHERE CompletedTicketsID = v_CompletedID;
 
     COMMIT;
+END$$
+
+DELIMITER ;
+
+
+-- creates ticket
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS CreateTicket$$
+
+CREATE PROCEDURE CreateTicket(
+    IN p_ContactInfoID INT,
+    IN p_TypeOfIssue VARCHAR(50),
+    IN p_Priority VARCHAR(50),
+    IN p_TypeOfTicket VARCHAR(50)
+)
+BEGIN
+    DECLARE v_IssuesID INT;
+    DECLARE v_TicketID INT;
+
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+        BEGIN
+            ROLLBACK;
+            RESIGNAL;
+        END;
+
+    START TRANSACTION;
+
+    IF NOT EXISTS (
+        SELECT 1
+        FROM ContactInfo
+        WHERE ContactInfoID = p_ContactInfoID
+    ) THEN
+        SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 'Contact does not exist';
+    END IF;
+
+    INSERT INTO Issues (
+
+        TypeOfIssue,
+        IssueDate,
+        Priority
+    )
+    VALUES (
+               p_TypeOfIssue,
+               CURDATE(),
+               p_Priority
+           );
+
+    SET v_IssuesID = LAST_INSERT_ID();
+
+    INSERT INTO Ticket (
+        TicketDate,
+        ContactInfoID,
+        IssuesID
+    )
+    VALUES (
+               CURDATE(),
+               p_ContactInfoID,
+               v_IssuesID
+           );
+
+    SET v_TicketID = LAST_INSERT_ID();
+
+    INSERT INTO IncompleteTickets (
+        TicketID,
+        DateMade,
+        TypeOfTicket
+    )
+    VALUES (
+               v_TicketID,
+               CURDATE(),
+               p_TypeOfTicket
+           );
+
+    COMMIT;
+
+    SELECT v_TicketID AS NewTicketID;
+
 END$$
 
 DELIMITER ;
