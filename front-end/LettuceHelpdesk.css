@@ -171,12 +171,18 @@ p
    Controls the appearance of the ticket list
    ========================================= */
 
+#my-tickets
+{
+    overflow-x: auto;
+}
+
 /* Table size and spacing */
 #my-tickets table
 {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    min-width: 650px;
 }
 
 /* Table heading appearance */
@@ -230,7 +236,25 @@ p
     color: white;
 }
 
+#preferences select
+{
+    padding: 8px;
+    box-sizing: border-box;
+}
 
+#preferences button
+{
+    background-color: #09C071;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#preferences button:hover
+{
+    background-color: #078F55;
+}
 /* =========================================
    TICKET POPUP
    Controls the Create Support Ticket window
@@ -293,6 +317,8 @@ p
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.7);
+    background-color: #161616;
+    border-radius: 10px;
 }
 
 /* Close button appearance */
