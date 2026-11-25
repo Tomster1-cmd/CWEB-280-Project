@@ -15,6 +15,25 @@ const closeButton = document.querySelector(".close");
 // Get the ticket form
 const ticketForm = document.getElementById("ticketForm");
 
+//Support Link
+const supportLink = document.getElementById("supportLink");
+const supportDashboard = document.getElementById("support-dashboard");
+
+supportLink.addEventListener("click", function(event)
+{
+    event.preventDefault();
+
+    supportDashboard.style.display = "block";
+    supportDashboard.scrollIntoView({ behavior: "smooth" });
+});
+
+// Close IT Support Dashboard
+const closeSupport = document.getElementById("closeSupport");
+
+closeSupport.addEventListener("click", function()
+{
+    supportDashboard.style.display = "none";
+});
 
 /* =====================================
    OPEN TICKET POPUP
@@ -75,8 +94,6 @@ window.addEventListener("click", function(event)
         ticketPopup.style.display = "none";
     }
 });
-
-
 
 /* =====================================
    SUBMIT SUPPORT TICKET
