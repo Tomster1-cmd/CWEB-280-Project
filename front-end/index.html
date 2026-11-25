@@ -24,21 +24,19 @@
             that makes it easier for employees to report
             problems and for IT staff to manage them.</p>
     </section>
-    <section id="new-ticket">
 
-        <h2>Create New Ticket</h2>
+        <section id="new-ticket" class="ticket-section">
 
-        <p>Submit a technical issue to our IT support team.</p>
-    </section>
-    <section class="ticket-section">
-        <h2>Create a Ticket</h2>
-        <p>
-            Having technical difficulties?
-            Submit a ticket to our IT support team.
-        </p>
-        <button id="openTicket">Create Ticket</button>
-    </section>
+            <h2>Create a Ticket</h2>
 
+            <p>
+                Having technical difficulties?
+                Submit a ticket to our IT support team.
+            </p>
+
+            <button id="openTicket">Create Ticket</button>
+
+        </section>
 
     <!-- My Tickets Section -->
     <section id="my-tickets">
@@ -139,13 +137,11 @@
 
         <form id="ticketForm">
 
-            <label for="name">Full Name</label>
-            <input type="text" id="name"
-                   placeholder="Enter your name" required>
+            <label for="ticketName">Full Name</label>
+            <input type="text" id="ticketName" readonly>
 
-            <label for="email">Email Address</label>
-            <input type="email" id="email"
-                   placeholder="Enter your email" required>
+            <label for="ticketEmail">Email Address</label>
+            <input type="email" id="ticketEmail" readonly>
 
             <label for="issue">Issue Category</label>
             <select id="issue" required>
