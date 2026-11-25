@@ -1,7 +1,29 @@
+/*
+
+ Provides reusable queries that will retrieve ticket information, their status as
+ well as the dashboards' statistics.
+
+ This file will also make the data retrieval simple by combining
+ the information from multiple tables that are related.
+
+ This file requires the databse.sql to run properly.
+ */
 
 USE cweb_280_project;
 
 -- View 1: Ticket details
+
+/*
+ Retrieves the tickets information by combing the employee, department and issue data
+
+ We use the left join to retain all the tickets records even if some
+ of those records may be missing
+
+ this section requires the Ticket, contactInfo, department and Issues table
+
+ This provides a centralized query that is used to retrieve the
+ detailed support information from the tickets.
+ */
 CREATE OR REPLACE VIEW TicketDetailsView AS
 SELECT
     t.TicketID,
@@ -22,6 +44,10 @@ FROM Ticket AS t
                    ON t.IssuesID = i.IssuesID;
 
 
+/*
+
+ in
+ */
 -- View 2: Incomplete tickets
 CREATE OR REPLACE VIEW IncompleteTicketsView AS
 SELECT

@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS ContactInfo (
 -- Issues
 /*
  Stores reported issues including the category of the issue
- either being network, software, hardware. The table also will save the
+ either being  the network, software, hardware. The table also will save the
  date for each of the issues.
  */
 CREATE TABLE IF NOT EXISTS Issues (
