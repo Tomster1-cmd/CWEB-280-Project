@@ -70,7 +70,7 @@ create or replace view TicketStatisticsView as
     select
         (select count(*)
          from Ticket) as totalTickets,
-        
+
         (select  count(distinct TicketID)
          from incompletetickets) as IncompleteTickets,
 

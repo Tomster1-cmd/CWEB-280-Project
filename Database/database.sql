@@ -1,9 +1,20 @@
 
+/*
+    This file creates the database with each of the tables.
+    These tables manage the data for departments, employee information,
+    issues and Tickets ranging from incomplete to complete.
+
+    This file does not require another file to run properly.
+
+ */
+
 CREATE DATABASE IF NOT EXISTS cweb_280_project;
 
 USE cweb_280_project;
 
--- Department
+-- Stores organized  departments
+-- Each of the departments has its own unique ID from the DepartmentID
+-- Can be associated with multiple employees contacts info
 CREATE TABLE IF NOT EXISTS Department (
 
      DepartmentID INT PRIMARY KEY,
@@ -15,6 +26,10 @@ CREATE TABLE IF NOT EXISTS Department (
 );
 
 -- Contact Information
+/*
+ Stores employee contact information including their first name, last name,
+ employee id, and the department associated with them.
+ */
 CREATE TABLE IF NOT EXISTS ContactInfo (
 
       ContactInfoID INT PRIMARY KEY,
@@ -34,6 +49,11 @@ CREATE TABLE IF NOT EXISTS ContactInfo (
 );
 
 -- Issues
+/*
+ Stores reported issues including the category of the issue
+ either being network, software, hardware. The table also will save the
+ date for each of the issues.
+ */
 CREATE TABLE IF NOT EXISTS Issues (
 
     IssuesID INT auto_increment primary KEY,
@@ -47,6 +67,10 @@ CREATE TABLE IF NOT EXISTS Issues (
 );
 
 -- Tickets
+/*
+ Stores the users tickets including the creation of the ticket,
+ the table also references the employees contact information.
+ */
 CREATE TABLE IF NOT EXISTS Ticket (
 
     TicketID INT  auto_increment PRIMARY KEY,
