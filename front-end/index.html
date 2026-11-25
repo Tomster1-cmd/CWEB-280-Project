@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lettuce Helpdesk</title>
-    <link rel="stylesheet" href="LettuceHelpdesk.css">
+    <link rel="stylesheet" href="Lettuce Helpdesk.css">
 </head>
 <body>
 <nav class="topbar">
@@ -39,52 +39,78 @@
         <button id="openTicket">Create Ticket</button>
     </section>
 
+
+    <!-- My Tickets Section -->
     <section id="my-tickets">
+
         <h2>My Tickets</h2>
+
         <p>View and track your submitted support tickets.</p>
+
         <table>
+
+            <!-- Table Headings -->
             <tr>
                 <th>Ticket ID</th>
+                <th>Employee</th>
+                <th>Department</th>
                 <th>Subject</th>
-                <th>Category</th>
                 <th>Priority</th>
                 <th>Status</th>
             </tr>
 
+            <!-- Ticket 1: Incomplete -->
             <tr>
                 <td>001</td>
-                <td>Computer not starting</td>
-                <td>Hardware</td>
+                <td>John Smith</td>
+                <td>IT</td>
+                <td>Computer Problem</td>
                 <td>High</td>
-                <td>Open</td>
+                <td>Incomplete</td>
             </tr>
 
+            <!-- Ticket 2: Completed -->
             <tr>
                 <td>002</td>
-                <td>Internet connection issue</td>
-                <td>Network</td>
-                <td>Medium</td>
-                <td>In Progress</td>
+                <td>Jane Doe</td>
+                <td>HR</td>
+                <td>Password Reset</td>
+                <td>Low</td>
+                <td>Completed</td>
             </tr>
 
-            <tr>
-                <td>003</td>
-                <td>Password reset</td>
-                <td>Account Access</td>
-                <td>Low</td>
-                <td>Resolved</td>
-            </tr>
         </table>
+
     </section>
+
 
     <section id="preferences">
         <h2>Preferences</h2>
         <p>Manage your account preferences.</p>
         <form>
-            <label for="userName">Full Name</label>
-            <input type="text" id="userName"
-                   placeholder="Enter your name">
+            <!-- First Name -->
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName"
+                   placeholder="Enter your first name" required>
 
+            <!-- Last Name -->
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName"
+                   placeholder="Enter your last name" required>
+
+            <!-- Department -->
+            <label for="department">Department</label>
+            <select id="department" required>
+                <option value="">Select your department</option>
+                <option>IT</option>
+                <option>Human Resources</option>
+                <option>Accounting</option>
+                <option>Sales</option>
+                <option>Marketing</option>
+                <option>Administration</option>
+                <option>Other</option>
+            </select>
+            <!-- Email -->
             <label for="userEmail">Email Address</label>
             <input type="email" id="userEmail"
                    placeholder="Enter your email">
@@ -105,11 +131,6 @@
         </form>
     </section>
 </main>
-
-<footer class="footer">
-    <p>&copy; 2026 Lettuce Helpdesk. All rights reserved.</p>
-    <p>IT Support Made Simple.</p>
-</footer>
 
 <div id="ticketPopup" class="popup">
     <div class="popup-content">
@@ -159,5 +180,10 @@
         </form>
     </div>
 </div>
+<footer class="footer">
+    <p>&copy; 2026 Lettuce Helpdesk. All rights reserved.</p>
+    <p>IT Support Made Simple.</p>
+</footer>
+<script src="Lettuce%20Helpdesk.js"></script>
 </body>
 </html>
