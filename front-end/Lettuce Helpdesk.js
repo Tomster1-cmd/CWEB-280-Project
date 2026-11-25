@@ -22,9 +22,41 @@ const ticketForm = document.getElementById("ticketForm");
 
 openTicket.addEventListener("click", function()
 {
+    const firstName = document.getElementById("firstName").value;
+    const lastName = document.getElementById("lastName").value;
+    const department = document.getElementById("department").value;
+    const email = document.getElementById("userEmail").value;
+
+    if (!firstName || !lastName || !department || !email)
+    {
+        alert("Please complete your employee information in Preferences first.");
+        return;
+    }
+
     ticketPopup.style.display = "block";
 });
 
+/* =====================================
+   SAVE PREFERENCES
+   ===================================== */
+
+const savePreferences = document.getElementById("savePreferences");
+
+savePreferences.addEventListener("click", function()
+{
+    const firstName = document.getElementById("firstName").value;
+    const lastName = document.getElementById("lastName").value;
+    const department = document.getElementById("department").value;
+    const email = document.getElementById("userEmail").value;
+
+    if (!firstName || !lastName || !department || !email)
+    {
+        alert("Please complete all required fields.");
+        return;
+    }
+
+    alert("Your preferences have been saved successfully!");
+});
 
 /* =====================================
    CLOSE TICKET POPUP
