@@ -1,28 +1,37 @@
+
+/* =========================================
+   INTRODUCTION SECTION
+   Controls the appearance of the introduction
+   ========================================= */
+
 .introduction
 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #161616;
     color: white;
 }
+
+/* Main headings */
 .heading
 {
-    color: #2e7031;
+    color: white;
     font-size: 32px;
     text-align: center;
 }
 
+/* Smaller headings */
 .sub-heading
 {
-    color: #4a8c50;
+    color: white;
     font-size: 25px;
     text-align: center;
 }
 
-p
-{
-    font-size: 18px;
-    line-height: 1.6;
-    text-align: center;
-}
+
+/* =========================================
+   GENERAL PAGE SETTINGS
+   Controls the overall website appearance
+   ========================================= */
 
 body
 {
@@ -34,29 +43,113 @@ body
     background-position: center;
     min-height: 100vh;
     text-align: center;
-    color: #333;
+    color: white;
 }
 
-.ticket-section h2, p
+/* Makes all paragraphs white by default */
+p
+{
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: center;
+    color: white;
+}
+
+
+/* =========================================
+   MAIN CONTENT AREA
+   Controls the background and text of the
+   main dashboard sections
+   ========================================= */
+
+.main-content
+{
+    flex: 1;
+    background-color: #161616;
+    padding: 20px;
+    color: white;
+}
+
+/* Adds spacing between each section */
+.main-content section
+{
+    margin-bottom: 35px;
+}
+
+/* Makes all section headings white */
+.main-content h2,
+.main-content h3
 {
     color: white;
 }
 
-.popup-content h2
+/* Ensures all section text is white */
+.main-content p,
+.main-content label
 {
     color: white;
 }
+
+
+/* =========================================
+   TOP NAVIGATION BAR
+   Controls Dashboard, New Tickets,
+   My Tickets and Preferences
+   ========================================= */
+
+.topbar
+{
+    background-color: #161616;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Navigation link appearance */
+.topbar a
+{
+    color: aquamarine;
+    text-decoration: none;
+}
+
+/* Changes navigation links to white when hovered */
+.topbar a:hover
+{
+    color: white;
+}
+
+/* Removes default heading spacing */
+.topbar h2
+{
+    margin: 0;
+}
+
+
+/* =========================================
+   TICKET SECTION
+   Controls the Create Ticket section
+   ========================================= */
+
 .ticket-section
 {
     color: white;
 }
 
+/* Ticket section headings */
+.ticket-section h2
+{
+    color: white;
+}
+
+/* Ticket section paragraphs */
 .ticket-section p
 {
     color: white;
 }
 
-
+/* Create Ticket button appearance */
 .ticket-section button
 {
     background-color: #09C071;
@@ -66,10 +159,84 @@ body
     cursor: pointer;
 }
 
+/* Button hover effect */
 .ticket-section button:hover
 {
-    background-color: #09C071;
+    background-color: #078F55;
 }
+
+
+/* =========================================
+   MY TICKETS TABLE
+   Controls the appearance of the ticket list
+   ========================================= */
+
+/* Table size and spacing */
+#my-tickets table
+{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Table heading appearance */
+#my-tickets th
+{
+    background-color: #09C071;
+    color: white;
+    padding: 12px;
+}
+
+/* Table cell appearance */
+#my-tickets td
+{
+    padding: 12px;
+    border-bottom: 1px solid #555;
+    text-align: center;
+    color: white;
+}
+
+/* Changes table row background when hovered */
+#my-tickets tr:hover
+{
+    background-color: #333333;
+}
+
+
+/* =========================================
+   PREFERENCES SECTION
+   Controls the account preferences form
+   ========================================= */
+
+#preferences form
+{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Preferences input fields */
+#preferences input
+{
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+/* Preferences labels */
+#preferences label
+{
+    color: white;
+}
+
+
+/* =========================================
+   TICKET POPUP
+   Controls the Create Support Ticket window
+   ========================================= */
+
+/* Popup form layout */
 #ticketForm
 {
     display: flex;
@@ -80,6 +247,7 @@ body
     color: white;
 }
 
+/* Popup input fields, dropdowns and text area */
 #ticketForm input,
 #ticketForm select,
 #ticketForm textarea
@@ -89,12 +257,21 @@ body
     box-sizing: border-box;
 }
 
+/* Popup form labels */
 #ticketForm label
 {
     display: block;
     font-weight: bold;
+    color: white;
 }
 
+/* Popup heading */
+.popup-content h2
+{
+    color: white;
+}
+
+/* Popup window content */
 .popup-content
 {
     width: 90%;
@@ -104,26 +281,39 @@ body
     box-sizing: border-box;
 }
 
-.topbar
+/* Ticket popup background */
+.popup
 {
-    background-color: #161616;
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Close button appearance */
+.close
+{
     color: white;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-.topbar h2
-{
-    margin: 0;
+/* Close button hover effect */
+.close:hover {
+    color: #09C071;
 }
 
-.header-icons
-{
-    display: flex;
-    gap: 20px;
-}
+/* =========================================
+   SIDEBAR
+   Controls the optional dashboard sidebar
+   ========================================= */
 
 .dashboard-container
 {
@@ -140,6 +330,7 @@ body
     box-sizing: border-box;
 }
 
+/* Sidebar navigation layout */
 .sidebar nav
 {
     display: flex;
@@ -147,94 +338,24 @@ body
     gap: 15px;
 }
 
+/* Sidebar links */
 .sidebar a
 {
     color: white;
     text-decoration: none;
 }
 
+/* Sidebar hover effect */
 .sidebar a:hover
 {
     color: #09C071;
 }
 
-.main-content
-{
-    flex: 1;
-    background-color: white;
-    padding: 20px;
-    color: #333;
-}
 
-#my-tickets table
-{
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-#my-tickets th
-{
-    background-color: #09C071;
-    color: white;
-    padding: 12px;
-}
-
-#my-tickets td
-{
-    padding: 12px;
-    border-bottom: 1px solid #ddd;
-    text-align: center;
-}
-
-#my-tickets tr:hover
-{
-    background-color: #f2f2f2;
-}
-
-.main-content section
-{
-    margin-bottom: 35px;
-}
-
-#dashboard h2,
-#new-ticket h2,
-#my-tickets h2,
-#preferences h2
-{
-    color: aquamarine;
-}
-#dashboard h2
-{
-    color: white;
-}
-#new-ticket h2,
-#my-tickets h2,
-#preferences h2
-{
-    color: white;
-}
-
-.topbar
-{
-    background-color: #161616;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-}
-
-.topbar a
-{
-    color: aquamarine !important;
-    text-decoration: none;
-}
-
-.topbar a:hover
-{
-    color: white !important;
-}
+/* =========================================
+   FOOTER
+   Controls the bottom of the website
+   ========================================= */
 
 .footer
 {
@@ -245,16 +366,20 @@ body
     margin-top: 40px;
 }
 
+/* Footer paragraph spacing */
 .footer p
 {
     margin: 8px 0;
+    color: white;
 }
 
+/* Optional footer links */
 .footer-links
 {
     margin-top: 15px;
 }
 
+/* Footer link appearance */
 .footer-links a
 {
     color: white;
@@ -262,6 +387,7 @@ body
     margin: 0 12px;
 }
 
+/* Footer link hover effect */
 .footer-links a:hover
 {
     color: #a3e635;
