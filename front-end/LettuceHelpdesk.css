@@ -11,6 +11,160 @@
     color: white;
 }
 
+/* =========================================
+   DASHBOARD STATISTICS
+   Controls the four dashboard statistic cards
+   ========================================= */
+
+.dashboard-stats
+{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.stat-card
+{
+    flex: 1;
+    min-width: 150px;
+    padding: 15px;
+    color: white;
+    border-radius: 5px;
+}
+
+.stat-card h3
+{
+    color: white;
+    font-size: 16px;
+}
+
+.stat-card p
+{
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/* Individual dashboard card colours */
+
+.total-tickets
+{
+    background-color: blue;
+}
+
+.total-solved
+{
+    background-color: #09C071;
+}
+
+.total-pending
+{
+    background-color: red;
+}
+
+.total-progress
+{
+    background-color: #E6D600;
+}
+/* =========================================
+   DASHBOARD ANALYTICS
+   Controls the dashboard chart and information
+   ========================================= */
+
+.dashboard-analytics
+{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Analytics chart container */
+
+.analytics-chart
+{
+    background-color: #09C071;
+    padding: 20px;
+    border-radius: 5px;
+    min-height: 220px;
+}
+
+.analytics-chart h3
+{
+    color: white;
+}
+
+/* Bar chart layout */
+
+.chart
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+    height: 150px;
+    gap: 15px;
+    padding: 10px;
+}
+
+.chart-bar
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    height: 100%;
+    flex: 1;
+    gap: 5px;
+}
+
+.bar
+{
+    background-color: white;
+    width: 100%;
+    max-width: 35px;
+    border-radius: 4px 4px 0 0;
+}
+
+.chart-bar span
+{
+    color: white;
+    font-size: 13px;
+}
+
+/* Information cards */
+
+.analytics-info
+{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.info-card
+{
+    background-color: #09C071;
+    padding: 15px;
+    border-radius: 5px;
+    flex: 1;
+}
+
+.info-card h3,
+.info-card p
+{
+    color: white;
+}
+
+/* Responsive dashboard */
+
+@media (max-width: 700px)
+{
+    .dashboard-analytics
+    {
+        grid-template-columns: 1fr;
+    }
+}
 /* Main headings */
 .heading
 {
