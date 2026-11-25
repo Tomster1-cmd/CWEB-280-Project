@@ -68,6 +68,33 @@
 {
     background-color: #E6D600;
 }
+
+/* IT Support Dashboard */
+
+#support-dashboard
+{
+    display: none;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #161616;
+    color: white;
+}
+
+
+#closeSupport
+{
+    background-color: #09C071;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+#closeSupport:hover
+{
+    background-color: #078F55;
+}
 /* =========================================
    DASHBOARD ANALYTICS
    Controls the dashboard chart and information
@@ -180,6 +207,7 @@
     font-size: 25px;
     text-align: center;
 }
+
 
 
 /* =========================================
