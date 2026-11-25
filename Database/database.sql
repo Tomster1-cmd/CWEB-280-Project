@@ -92,6 +92,12 @@ CREATE TABLE IF NOT EXISTS Ticket (
 );
 
 -- Incomplete Tickets
+/*
+  Stores the incomplete tickets inside a separate table for easier
+  organization and calling of tables. Each ticket has its own unique id,
+  uses the ticketID from the ticket table.
+
+ */
 CREATE TABLE IF NOT EXISTS IncompleteTickets (
 
    IncompleteTicketsID INT auto_increment primary key,
@@ -109,6 +115,11 @@ CREATE TABLE IF NOT EXISTS IncompleteTickets (
 );
 
 -- Completed Tickets
+/*
+ Similar to the incomplete tickets table the completed tickets table
+ sorts the tickets into the completed tickets table, each completed ticket will
+ also have the ticket id from the ticket table.
+ */
 CREATE TABLE IF NOT EXISTS CompletedTickets (
 
 CompletedTicketsID INT AUTO_INCREMENT PRIMARY KEY,
