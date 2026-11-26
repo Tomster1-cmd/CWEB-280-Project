@@ -60,6 +60,8 @@ CREATE TABLE IF NOT EXISTS Issues (
 
     TypeOfIssue VARCHAR(50),
 
+    IssueDescription text,
+
     IssueDate DATE,
 
     Priority VARCHAR(50)
