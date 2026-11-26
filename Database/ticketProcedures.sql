@@ -166,6 +166,34 @@ BEGIN
 
     START TRANSACTION;
 
+
+    -- Validate that a contact ID has been provided.
+    IF p_ContactInfoID IS NULL THEN
+        SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 'Contact ID is required';
+    END IF;
+
+-- Validate that an issue type has been provided.
+    IF p_TypeOfIssue IS NULL
+        OR TRIM(p_TypeOfIssue) = '' THEN
+        SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 'Issue type is required';
+    END IF;
+
+-- Validate that a detailed issue description has been provided.
+    IF p_IssueDescription IS NULL
+        OR TRIM(p_IssueDescription) = '' THEN
+        SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 'Issue description is required';
+    END IF;
+
+-- Validate that a ticket category has been provided.
+    IF p_TypeOfTicket IS NULL
+        OR TRIM(p_TypeOfTicket) = '' THEN
+        SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 'Ticket category is required';
+    END IF;
+
     IF NOT EXISTS (
         SELECT 1
         FROM ContactInfo
