@@ -34,7 +34,8 @@ SELECT
     d.NameOfDepartment,
     i.TypeOfIssue,
     i.IssueDate,
-    i.Priority
+    i.Priority,
+    i.IssueDescription
 FROM Ticket AS t
          LEFT JOIN ContactInfo AS c
                    ON t.ContactInfoID = c.ContactInfoID
@@ -59,7 +60,8 @@ SELECT
     c.FirstName,
     c.LastName,
     i.TypeOfIssue,
-    i.Priority
+    i.Priority,
+    i.IssueDescription
 FROM IncompleteTickets AS it
          INNER JOIN Ticket AS t
                     ON it.TicketID = t.TicketID
@@ -80,7 +82,8 @@ SELECT
     c.FirstName,
     c.LastName,
     i.TypeOfIssue,
-    i.Priority
+    i.Priority,
+    i.IssueDescription
 FROM CompletedTickets AS ct
          INNER JOIN Ticket AS t
                     ON ct.TicketID = t.TicketID

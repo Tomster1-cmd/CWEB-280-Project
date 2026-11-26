@@ -39,3 +39,37 @@ VALUES (1, 2, '2026-11-18', 'Password Reset');
 
 -- Display tickets
 SELECT * FROM Ticket;
+
+
+-- Insert sample issues with detailed descriptions.
+INSERT IGNORE INTO Issues (
+    IssuesID,
+    TypeOfIssue,
+    IssueDescription,
+    IssueDate,
+    Priority
+)
+VALUES
+    (
+        1,
+        'Computer Problem',
+        'Employee computer fails to start after restarting.',
+        '2026-11-18',
+        'High'
+    ),
+    (
+        2,
+        'Password Reset',
+        'Employee forgot their account password.',
+        '2026-11-18',
+        'Low'
+    );
+
+-- Update existing mock issue descriptions.
+UPDATE Issues
+SET IssueDescription = 'Employee computer fails to start after restarting.'
+WHERE IssuesID = 1;
+
+UPDATE Issues
+SET IssueDescription = 'Employee forgot their account password.'
+WHERE IssuesID = 2;

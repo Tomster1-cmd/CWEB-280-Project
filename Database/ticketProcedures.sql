@@ -176,7 +176,6 @@ BEGIN
     END IF;
 
     INSERT INTO Issues (
-
         TypeOfIssue,
         IssueDescription,
         IssueDate,
@@ -184,9 +183,12 @@ BEGIN
     )
     VALUES (
                p_TypeOfIssue,
-                p_IssueDescription,
+               p_IssueDescription,
                CURDATE(),
-               p_Priority
+               CalculatePriority(
+                       p_TypeOfIssue,
+                       p_IssueDescription
+               )
            );
 
     SET v_IssuesID = LAST_INSERT_ID();
