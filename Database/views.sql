@@ -43,7 +43,7 @@ FROM Ticket AS t
          LEFT JOIN Issues AS i
                    ON t.IssuesID = i.IssuesID;
 
-
+-- Kept working on from here
 /*
 
  in

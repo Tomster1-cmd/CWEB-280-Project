@@ -71,9 +71,8 @@ BEGIN
 END$$
 
 
--- ========================================
+
 -- REOPEN TICKET PROCEDURE
--- ========================================
 
 DROP PROCEDURE IF EXISTS ReopenTicket$$
 
@@ -152,7 +151,8 @@ CREATE PROCEDURE CreateTicket(
     IN p_ContactInfoID INT,
     IN p_TypeOfIssue VARCHAR(50),
     IN p_Priority VARCHAR(50),
-    IN p_TypeOfTicket VARCHAR(50)
+    IN p_TypeOfTicket VARCHAR(50),
+    in p_IssueDescription text
 )
 BEGIN
     DECLARE v_IssuesID INT;
@@ -178,11 +178,13 @@ BEGIN
     INSERT INTO Issues (
 
         TypeOfIssue,
+        IssueDescription,
         IssueDate,
         Priority
     )
     VALUES (
                p_TypeOfIssue,
+                p_IssueDescription,
                CURDATE(),
                p_Priority
            );
